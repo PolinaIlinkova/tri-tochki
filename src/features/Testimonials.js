@@ -15,7 +15,7 @@ const reviews = [
   },
   {
     type: "video",
-    src: "/rev/0826.mp4",
+    src: "https://youtube.com/embed/TRjDRHZT2_o",
     title: "Видео отзыв клиента",
     poster: "/rev/video-poster.jpg", // добавь картинку-заставку
   },
@@ -61,11 +61,9 @@ const Testimonials = () => {
                 />
               ) : (
                 <div className={styles.videoWrapper}>
-                  <video
-                    ref={videoRef}
-                    src={review.src}
-                    poster={review.poster}
-                    controls
+                  <iframe
+                   src={review.src}
+                   title="Видео-отзыв"
                     preload="none"
                     className={styles.video}
                   />

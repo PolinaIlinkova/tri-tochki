@@ -62,7 +62,7 @@ export default function Pricing() {
                   ))}
                 </ul>
               </div>
-              <a href="/files/tri-tochki-apartment.pdf" download>
+              <a href="https://drive.google.com/uc?export=download&id=1PFdwO8hex6HbzLNV9XMYKYmjWODy8O7z" target="_blank" rel="noopener noreferrer" download>
                 <Button text="загрузить пример"></Button>
               </a>
             </motion.div>

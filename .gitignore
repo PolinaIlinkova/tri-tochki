@@ -11,8 +11,8 @@
 # production
 /build
 
-public/rev/0826.mp4
-public/files/tri-tochki-apartment.pdf
+/public/rev/0826.mp4
+/public/files/tri-tochki-apartment.pdf
 
 # misc
 .DS_Store
