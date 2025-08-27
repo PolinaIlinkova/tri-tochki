@@ -1,0 +1,59 @@
+.nav {
+  display: flex;
+  gap: 24px;
+}
+
+.nav a {
+  text-decoration: none;
+  font-weight: 400;
+  transition: 0.2s ease;
+  font-family: "Noto Sans";
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 5px 10px;
+  border-bottom: dotted 4px transparent;
+  color: white;
+}
+
+.nav a:hover {
+  opacity: 0.5;
+  border-bottom-color: white;
+}
+
+.dark a {
+  color: #3a3531;
+}
+
+@media (max-width: 966px) {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    gap: 1.5rem;
+    top: 0;
+    left: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: #3a3531;
+    padding: 20% 5%;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(37, 37, 37, 0.1);
+  }
+  .burgerIsActive {
+    left: 0;
+  }
+  .nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding-top: 35%;
+  }
+}

@@ -1,0 +1,87 @@
+.aboutSection {
+  background-color: #f8f5f2;
+  color: #3a3531;
+  padding: 6rem 0;
+}
+
+
+
+.textBlock {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: auto 10%;
+}
+
+.heading_section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: auto;
+}
+
+.dot_line {
+  color:#a85c4a;
+    width: 15vw; 
+  height:6px;
+  background-image: radial-gradient(currentColor 4px, transparent 4px);
+  background-size: 16px 6px;
+  background-repeat: repeat-x;
+  opacity: 0.6;
+  flex-shrink: 0; 
+  }
+
+.heading {
+  font-family: "Raleway";
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.description {
+  font-family: "Manrope", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.imageBlock {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  object-position: center;
+}
+.descrip_section {
+  font-family: "Manrope", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: auto 10%;
+  transition: all 0.3s ease-in-out;
+}
+@media (max-width: 1024px) {
+  .textBlock {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+  }
+  .descrip_section {
+    margin: 0;
+  }
+}
+@media (max-width: 768px) {
+  .textBlock {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0;
+  }
+  .heading {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+  
+}

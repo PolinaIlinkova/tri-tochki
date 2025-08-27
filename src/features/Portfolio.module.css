@@ -1,0 +1,45 @@
+.portfolioSection {
+    background: #f8f5f2;
+  }
+  
+  .title {
+    font-family: "Raleway";
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .headingSection {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: auto;
+    padding-bottom: 3%;
+
+  }
+  .dot_line {
+    color:#a85c4a;
+      width: 15vw; 
+    height:6px;
+    background-image: radial-gradient(currentColor 4px, transparent 4px);
+    background-size: 16px 6px;
+    background-repeat: repeat-x;
+    opacity: 0.6;
+    flex-shrink: 0; 
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+

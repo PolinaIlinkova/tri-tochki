@@ -1,0 +1,25 @@
+.button {
+  background: #8a4d3f;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s;
+  }
+  
+  .button::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    width: 30%;
+    background: white;
+    transition: width 0.3s ease;
+  }
+  
+  .button:hover::after {
+    width: 100%;
+  }

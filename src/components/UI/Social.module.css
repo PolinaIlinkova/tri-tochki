@@ -1,0 +1,19 @@
+.socials {
+    margin-top: 20px;
+    display: flex;
+    gap: 16px;
+  }
+  
+  .socials img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.2s ease;
+  }
+  
+  .socials img:hover {
+    transform: scale(1.1);
+  }
+  
+  .white img {
+    filter: brightness(0) saturate(100%) invert(96%) sepia(5%) saturate(903%) hue-rotate(2deg) brightness(116%) contrast(99%);
+  }

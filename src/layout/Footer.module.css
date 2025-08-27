@@ -1,0 +1,35 @@
+.footer {
+  background-color: #3a3531;
+}
+
+.flex {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: center;
+}
+
+.text {
+  color: azure;
+  font-family: "Noto Sans";
+}
+
+@media (max-width: 768px) {
+    .flex {
+        grid-template-columns: 1fr 1fr;
+    }
+  .text {
+    text-align: end;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+    .flex {
+        grid-template-columns: 1fr;
+        align-items: center;
+    }
+    .text {
+        text-align: start;
+    }
+
+}

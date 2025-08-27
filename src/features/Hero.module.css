@@ -1,0 +1,83 @@
+.hero::before{
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.521); /* полупрозрачная черная подложка */
+    z-index: 0;
+    height: inherit;
+  }
+ .hero {
+  background-image: url('../assets/main.jpg'); 
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+ }
+  
+  .hero > * {
+    position: relative;
+    z-index: 1; /* чтобы контент был выше подложки */
+  }
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    padding: 0px 1em;
+    margin-top: 5rem;
+}  
+.titles {
+  margin: 0 auto;
+}
+
+h1 {
+  color: white;
+  font-family: 'Raleway';
+  text-transform: uppercase;
+  font-size: 2em;
+  margin: 20px 0px;
+  padding-left: 1em;
+}
+.titled {
+  position: relative;
+}
+.titled::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.9em;
+  height: 0.9em;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.text1 {
+  color: white;
+  font-family: 'Noto Sans';
+  text-transform: uppercase;
+}
+.text2 {
+  color: white;
+  font-family: 'Noto Sans';
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+.center {
+  margin: 1em auto;
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  .content {
+    margin-top: 2rem;
+  }
+
+}
+
+@media (max-width: 460px) {
+  .content {
+    margin-top: 0;
+  }
+
+}

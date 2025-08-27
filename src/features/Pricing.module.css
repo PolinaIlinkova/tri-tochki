@@ -1,0 +1,114 @@
+.pricingSection {
+    background: #f8f5f2;
+    padding: 3rem 0;
+  }
+  
+  .sectionTitle {
+    font-family: "Raleway";
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .grid {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    padding: 2rem;
+    position: relative;
+    background-color: #fafafa;
+    justify-content: space-between;
+  }
+
+  .card:hover .cardTitle {
+    width: 100%;
+   
+  }
+  
+  .cardTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    border-bottom: 4px dotted #a85c4a;
+    display: inline-block;
+    padding-bottom: 4px;
+    width: auto;
+    transition: all 0.3s ease-in-out;
+    
+  }
+  
+  .features {
+    margin: 1rem 0 2rem;
+    padding-left: 1rem;
+    list-style: none;
+    line-height: 1.6;
+  }
+  
+  .button {
+    background: black;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.3s;
+  }
+  
+  .button::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    width: 30%;
+    background: white;
+    transition: width 0.3s ease;
+  }
+  
+  .button:hover::after {
+    width: 100%;
+  }
+
+  .headingSection {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: auto;
+    padding-bottom: 3%;
+
+  }
+  .dot_line {
+    color:#a85c4a;
+      width: 15vw; 
+    height:6px;
+    background-image: radial-gradient(currentColor 4px, transparent 4px);
+    background-size: 16px 6px;
+    background-repeat: repeat-x;
+    opacity: 0.6;
+    flex-shrink: 0; 
+    }
+
+    @media (max-width: 768px) {
+      .sectionTitle {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
