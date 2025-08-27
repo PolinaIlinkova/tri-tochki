@@ -4,7 +4,7 @@ import { AnimatePresence } from "motion/react";
 
 import React from "react";
 import styles from "./About.module.css";
-import photoUs from "../assets/about.jpg";
+import photoUs from "../assets/about1.jpg";
 import MainContainer from "../layout/MainContainer";
 import Button from "../components/UI/Button";
 
