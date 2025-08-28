@@ -62,7 +62,7 @@ export default function Pricing() {
                   ))}
                 </ul>
               </div>
-              <a href="https://drive.google.com/uc?export=download&id=1PFdwO8hex6HbzLNV9XMYKYmjWODy8O7z" target="_blank" rel="noopener noreferrer" download>
+              <a href="https://vxvwoeiztytglrmk.public.blob.vercel-storage.com/tri-tochki-apartment.pdf" target="_blank" rel="noopener noreferrer" >
                 <Button text="загрузить пример"></Button>
               </a>
             </motion.div>
