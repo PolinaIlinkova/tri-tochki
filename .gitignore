@@ -10,6 +10,7 @@
 
 # production
 /build
+.env
 
 /public/rev/0826.mp4
 /public/files/tri-tochki-apartment.pdf

@@ -3,8 +3,8 @@ import styles from "./ModalForm.module.css";
 import Button from "../components/UI/Button";
 import PhoneInputField from "../components/UI/PhoneInputField";
 
-const TELEGRAM_BOT_TOKEN = "8452053897:AAElF_nbUIaJS1f8Oz57mAWj-YFi4bzuvEI";
-const TELEGRAM_CHAT_ID = "-4937510618"; 
+const TOKEN = process.env.REACT_APP_BOT_TOKEN;
+const CHAT_ID = process.env.REACT_APP_CHAT_ID; 
 
 export default function ModalForm({ onClose }) {
   const [formData, setFormData] = useState({
@@ -57,11 +57,11 @@ export default function ModalForm({ onClose }) {
     `;
 
     try {
-      await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
+          chat_id: CHAT_ID,
           text: message,
         }),
       });

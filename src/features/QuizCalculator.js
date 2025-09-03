@@ -23,6 +23,9 @@ const questions = [
   },
 ];
 
+const TOKEN = process.env.REACT_APP_BOT_TOKEN;
+const CHAT_ID = process.env.REACT_APP_CHAT_ID;
+
 export default function QuizCalculator() {
   const [submitted, setSubmitted] = useState(false);
   const [step, setStep] = useState(0);
@@ -62,13 +65,13 @@ export default function QuizCalculator() {
     `;
 
     try {
-      await fetch(`https://api.telegram.org/bot8452053897:AAElF_nbUIaJS1f8Oz57mAWj-YFi4bzuvEI/sendMessage`, {
+      await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          chat_id: "-4937510618", 
+          chat_id: CHAT_ID, 
           text: message,
           parse_mode: "Markdown",
         }),

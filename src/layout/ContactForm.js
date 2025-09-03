@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import styles from './ContactForm.module.css';
-import PhoneInputField from '../components/UI/PhoneInputField';
+import React, { useState } from "react";
+import styles from "./ContactForm.module.css";
+import PhoneInputField from "../components/UI/PhoneInputField";
 
-const TOKEN = '8452053897:AAElF_nbUIaJS1f8Oz57mAWj-YFi4bzuvEI';
-const CHAT_ID = '-4937510618';
+const TOKEN = process.env.REACT_APP_BOT_TOKEN;
+const CHAT_ID = process.env.REACT_APP_CHAT_ID;
 
 function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -29,7 +29,7 @@ function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validatePhone()) {
       alert("Введите корректный номер телефона");
       return;
@@ -42,19 +42,19 @@ function ContactForm() {
 📩 Заявка из формы "вопрос":
 👤 Имя: ${data.name}
 📞 Телефон: ${phone}
-💬 Комментарий: ${data.message || '-'}
+💬 Комментарий: ${data.message || "-"}
     `;
 
     try {
       const response = await fetch(
         `https://api.telegram.org/bot${TOKEN}/sendMessage`,
         {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             chat_id: CHAT_ID,
             text,
-            parse_mode: 'HTML',
+            parse_mode: "HTML",
           }),
         }
       );
@@ -64,11 +64,13 @@ function ContactForm() {
       if (result.ok) {
         setSubmitted(true);
       } else {
-        alert('Ошибка при отправке в Telegram');
+        alert("Ошибка при отправке в Telegram");
       }
     } catch (err) {
       console.error(err);
-      alert('Ошибка при отправке формы');
+      console.log("TOKEN:", TOKEN);
+      console.log("CHAT_ID:", CHAT_ID);
+      alert("Ошибка при отправке формы");
     }
   };
 
@@ -82,10 +84,17 @@ function ContactForm() {
       ) : (
         <>
           <h3>Остались вопросы?</h3>
-          <p>Закажите обратный звонок и мы свяжемся с вами, чтобы ответить на все ваши вопросы по дизайн-проекту и принципу работы студии</p>
+          <p>
+            Закажите обратный звонок и мы свяжемся с вами, чтобы ответить на все
+            ваши вопросы по дизайн-проекту и принципу работы студии
+          </p>
           <form onSubmit={handleSubmit} className={styles.form}>
             <input type="text" name="name" placeholder="Ваше имя" required />
-            <PhoneInputField value={phone} onChange={setPhone} onCountryChange={setCountry}/>
+            <PhoneInputField
+              value={phone}
+              onChange={setPhone}
+              onCountryChange={setCountry}
+            />
             <textarea
               name="message"
               placeholder="Комментарий (необязательно)"
