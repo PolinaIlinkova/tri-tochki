@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./ModalForm.module.css";
 import Button from "../components/UI/Button";
+import PhoneInputField from "../components/UI/PhoneInputField";
 
 const TELEGRAM_BOT_TOKEN = "8452053897:AAElF_nbUIaJS1f8Oz57mAWj-YFi4bzuvEI";
 const TELEGRAM_CHAT_ID = "-4937510618"; 
@@ -12,6 +13,25 @@ export default function ModalForm({ onClose }) {
     projectType: "",
     phone: "",
   });
+  const [phone, setPhone] = useState("");
+  const [country, setCountry] = useState("by");
+
+  const validatePhone = () => {
+    const digits = phone.replace(/\D/g, "");
+
+    if (country === "by") {
+      // Беларусь: код +375 (4 символа), дальше 9 цифр → всего 12–13 символов
+      return digits.length === 12 && digits.startsWith("375");
+    }
+
+    if (country === "ru") {
+      // Россия: код +7 (1 символ), дальше 10 цифр → всего 11 символов
+      return digits.length === 11 && digits.startsWith("7");
+    }
+
+    // базовая проверка для других стран: хотя бы 10 цифр
+    return digits.length >= 10;
+  };
 
   const [submitted, setSubmitted] = useState(false);
 
@@ -22,6 +42,11 @@ export default function ModalForm({ onClose }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!validatePhone()) {
+      alert("Введите корректный номер телефона");
+      return;
+    }
 
     const message = `
 💬 Новая заявка из формы:
@@ -97,13 +122,7 @@ export default function ModalForm({ onClose }) {
 
       <label>
         Телефон для связи
-        <input
-          type="tel"
-          name="phone"
-          value={formData.phone}
-          required
-          onChange={handleChange}
-        />
+        <PhoneInputField value={phone} onChange={setPhone} onCountryChange={setCountry} styles={{width:'100%', background: 'transparent'}}/>
       </label>
 
       <button type="submit" className={styles.submitBtn}>
