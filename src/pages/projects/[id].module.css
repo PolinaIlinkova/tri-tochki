@@ -84,3 +84,21 @@
       width: 90%;
     }
   }
+
+  .backButtonWrapper {
+    margin: 1rem 0;
+  }
+  
+  .backButton {
+    background: none;
+    border: none;
+    color: #a85c4a;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  
+  .backButton:hover {
+    color: #7a3d2f;
+  }

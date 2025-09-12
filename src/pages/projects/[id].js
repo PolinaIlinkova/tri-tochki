@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -19,6 +19,7 @@ import { HashLink } from "react-router-hash-link";
 export default function ProjectPage() {
   const { id } = useParams();
   const project = projectData.find((p) => p.id === id);
+  const navigate = useNavigate(); 
 
   if (!project) return <p>Проект не найден</p>;
 
@@ -26,6 +27,11 @@ export default function ProjectPage() {
     <>
       <MainContainer>
         <Header dark={true} />
+        <div className={styles.backButtonWrapper}>
+          <button onClick={() => navigate("/")} className={styles.backButton}>
+            ← Назад
+          </button>
+        </div>
         <div className={styles.projectWrapper}>
           <div className={styles.titleWrapper}>
             <h1 className={styles.title}>{project.title}</h1>
