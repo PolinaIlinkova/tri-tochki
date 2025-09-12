@@ -35,6 +35,13 @@ const plans = [
 export default function Pricing() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
+
+  function handleCl () {
+    if (window.ym) {
+      window.ym(104132059, 'reachGoal', 'project');
+    }
+    
+  }
   return (
     <section className={styles.pricingSection} ref={ref} id="services">
       <MainContainer>
@@ -64,7 +71,7 @@ export default function Pricing() {
                 </ul>
               </div>
               <a href="https://vxvwoeiztytglrmk.public.blob.vercel-storage.com/tri-tochki-apartment.pdf" target="_blank" rel="noopener noreferrer" >
-                <Button text="загрузить пример" onClick={ym(104132059,'reachGoal','project')}></Button>
+                <Button text="загрузить пример" onClick={handleCl}></Button>
               </a>
             </motion.div>
           ))}
