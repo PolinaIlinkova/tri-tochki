@@ -40,7 +40,7 @@ export default function QuizCalculator() {
 
     if (step + 1 < questions.length) {
       if (window.ym) {
-        window.ym(104132059, 'reachGoal', 'calculator');
+        window.ym(104132928, 'reachGoal', 'calculator');
       }
       setStep((prev) => prev + 1);
     } else {

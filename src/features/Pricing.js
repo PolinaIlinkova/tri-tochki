@@ -38,7 +38,7 @@ export default function Pricing() {
 
   function handleCl () {
     if (window.ym) {
-      window.ym(104132059, 'reachGoal', 'project');
+      window.ym(1041329289, 'reachGoal', 'project');
     }
     
   }
