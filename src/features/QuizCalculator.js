@@ -39,6 +39,7 @@ export default function QuizCalculator() {
     setAnswers((prev) => ({ ...prev, [key]: value }));
 
     if (step + 1 < questions.length) {
+      ym(104132059,'reachGoal','calculator')
       setStep((prev) => prev + 1);
     } else {
       setShowForm(true);

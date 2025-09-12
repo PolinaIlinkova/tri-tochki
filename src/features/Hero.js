@@ -10,6 +10,9 @@ const Hero = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   function openModal() {
+    if (window.ym) {
+      window.ym(104132059, "reachGoal", "poluchit_raschet");
+    }
     setModalIsOpen(true);
   }
   return (

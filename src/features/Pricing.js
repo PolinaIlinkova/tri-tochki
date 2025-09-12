@@ -64,7 +64,7 @@ export default function Pricing() {
                 </ul>
               </div>
               <a href="https://vxvwoeiztytglrmk.public.blob.vercel-storage.com/tri-tochki-apartment.pdf" target="_blank" rel="noopener noreferrer" >
-                <Button text="загрузить пример"></Button>
+                <Button text="загрузить пример" onClick={ym(104132059,'reachGoal','project')}></Button>
               </a>
             </motion.div>
           ))}
