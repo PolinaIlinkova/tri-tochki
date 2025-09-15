@@ -17,6 +17,11 @@
     flex-direction: column;
     gap: 2rem;
   }
+
+  .btns {
+    display: flex;
+    gap: 1rem;
+  }
   
   @media (min-width: 768px) {
     .grid {
