@@ -1,6 +1,5 @@
 import Header from "../layout/Header";
 import styles from "./Hero.module.css";
-import Button from "../components/UI/Button";
 import MainContainer from "../layout/MainContainer";
 import Modal from "../components/UI/Modal";
 import { useState } from "react";
@@ -39,7 +38,17 @@ const Hero = () => {
             <p className={styles.text2}>
               <b>Три точки</b> - студия дизайна и проектировки в Гомеле
             </p>
-            <Button onClick={openModal} />
+            <div className={styles.buttons}>
+              <a href='https://vxvwoeiztytglrmk.public.blob.vercel-storage.com/tri-tochki-apartm.pdf' target="_blank" rel="noopener noreferrer">
+                <button onClick={openModal} className={styles.superButton}>
+                  <span className={styles.label}>СКАЧАТЬ ПРИМЕР</span>
+                </button>
+              </a>
+
+              <button onClick={openModal} className={styles.superButton}>
+              <span className={styles.label}>Получить расчет</span>
+              </button>
+            </div>
           </div>
         </div>
       </MainContainer>

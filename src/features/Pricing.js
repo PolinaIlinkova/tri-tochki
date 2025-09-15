@@ -11,6 +11,7 @@ const plans = [
       "Планировочные решения (с расстановкой мебели)",
       "Документация для проведения ремонтно-отделочных работ",
     ],
+    project: 'https://vxvwoeiztytglrmk.public.blob.vercel-storage.com/tri-tochki-apartm_tochka1.pdf'
   },
   {
     title: "Точка 2",
@@ -19,6 +20,7 @@ const plans = [
       "Визуализация проекта в 2D и 3D",
       "Документация для проведения ремонтно-отделочных работ",
     ],
+    project: 'https://vxvwoeiztytglrmk.public.blob.vercel-storage.com/tri-tochki-apartm.pdf'
   },
   {
     title: "Точка 3",
@@ -29,6 +31,7 @@ const plans = [
       "Ведомость отделочных материалов, мебели и техники",
       'Авторский надзор'
     ],
+    project: 'https://vxvwoeiztytglrmk.public.blob.vercel-storage.com/tri-tochki-apartm.pdf'
   },
 ];
 
@@ -70,7 +73,7 @@ export default function Pricing() {
                   ))}
                 </ul>
               </div>
-              <a href="https://vxvwoeiztytglrmk.public.blob.vercel-storage.com/tri-tochki-apartment.pdf" target="_blank" rel="noopener noreferrer" >
+              <a href={plan.project} target="_blank" rel="noopener noreferrer" >
                 <Button text="загрузить пример" onClick={handleCl}></Button>
               </a>
             </motion.div>

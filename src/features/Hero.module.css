@@ -67,6 +67,43 @@ h1 {
   margin: 1em auto;
   text-align: center;
 }
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.superButton {
+  --bg: transparent;
+  --text: #fff;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 30px;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--text);
+  background: var(--bg);
+  border: 2px solid rgba(255, 255, 255, 0.466);
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
+  transition: transform 240ms cubic-bezier(.2,.9,.2,1), 
+              box-shadow 240ms ease, 
+              color 240ms ease;
+  -webkit-tap-highlight-color: transparent;
+  text-transform: uppercase;
+}
+
+.superButton:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(3,37,32,0.18);
+  outline: none;
+  background-color: #7e4b2983;
+}
 
 @media (max-width: 576px) {
   .content {
@@ -78,6 +115,9 @@ h1 {
 @media (max-width: 460px) {
   .content {
     margin-top: 0;
+  }
+  .buttons {
+    flex-direction: column;
   }
 
 }

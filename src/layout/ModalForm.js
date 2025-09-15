@@ -1,37 +1,15 @@
 import React, { useState } from "react";
 import styles from "./ModalForm.module.css";
 import Button from "../components/UI/Button";
-import PhoneInputField from "../components/UI/PhoneInputField";
 
 const TOKEN = process.env.REACT_APP_BOT_TOKEN;
-const CHAT_ID = process.env.REACT_APP_CHAT_ID; 
+const CHAT_ID = process.env.REACT_APP_CHAT_ID;
 
 export default function ModalForm({ onClose }) {
   const [formData, setFormData] = useState({
     name: "",
-    area: "",
-    projectType: "",
     phone: "",
   });
-  const [phone, setPhone] = useState("");
-  const [country, setCountry] = useState("by");
-
-  const validatePhone = () => {
-    const digits = phone.replace(/\D/g, "");
-
-    if (country === "by") {
-      // Беларусь: код +375 (4 символа), дальше 9 цифр → всего 12–13 символов
-      return digits.length === 12 && digits.startsWith("375");
-    }
-
-    if (country === "ru") {
-      // Россия: код +7 (1 символ), дальше 10 цифр → всего 11 символов
-      return digits.length === 11 && digits.startsWith("7");
-    }
-
-    // базовая проверка для других стран: хотя бы 10 цифр
-    return digits.length >= 10;
-  };
 
   const [submitted, setSubmitted] = useState(false);
 
@@ -40,10 +18,15 @@ export default function ModalForm({ onClose }) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const validatePhone = (phone) => {
+    const digits = phone.replace(/\D/g, ""); // оставляем только цифры
+    return digits.length >= 9 && digits.length <= 15; // простая проверка
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validatePhone()) {
+    if (!validatePhone(formData.phone)) {
       alert("Введите корректный номер телефона");
       return;
     }
@@ -51,8 +34,6 @@ export default function ModalForm({ onClose }) {
     const message = `
 💬 Новая заявка из формы:
 👤 Имя: ${formData.name}
-📐 Площадь: ${formData.area}
-📁 Тип проекта: ${formData.projectType}
 📞 Телефон: ${formData.phone}
     `;
 
@@ -76,7 +57,7 @@ export default function ModalForm({ onClose }) {
     return (
       <div className={styles.success}>
         <p>✅ Спасибо! Мы свяжемся с вами в ближайшее время.</p>
-        <Button text="Закрыть" onClick={onClose}/>
+        <Button text="Закрыть" onClick={onClose} />
       </div>
     );
   }
@@ -95,38 +76,19 @@ export default function ModalForm({ onClose }) {
       </label>
 
       <label>
-        Площадь помещения
+        Телефон для связи
         <input
-          type="text"
-          name="area"
-          value={formData.area}
+          type="tel"
+          name="phone"
+          placeholder="+375 (XX) XXX-XX-XX"
+          value={formData.phone}
           required
           onChange={handleChange}
         />
       </label>
 
-      <label>
-        Тип проекта
-        <select
-          name="projectType"
-          value={formData.projectType}
-          required
-          onChange={handleChange}
-        >
-          <option value="">Выберите тип</option>
-          <option value="Технический для ремонта">Технический для ремонта</option>
-          <option value="Полный с 3D визуализацией">Полный с 3D визуализацией</option>
-          <option value="Консультация">Консультация</option>
-        </select>
-      </label>
-
-      <label>
-        Телефон для связи
-        <PhoneInputField value={phone} onChange={setPhone} onCountryChange={setCountry} styles={{width:'100%', background: 'transparent'}}/>
-      </label>
-
       <button type="submit" className={styles.submitBtn}>
-        Отправить расчет
+        Отправить
       </button>
     </form>
   );
