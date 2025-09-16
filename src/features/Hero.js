@@ -39,11 +39,11 @@ const Hero = () => {
               <b>Три точки</b> - студия дизайна и проектировки в Гомеле
             </p>
             <div className={styles.buttons}>
-              <a href='https://vxvwoeiztytglrmk.public.blob.vercel-storage.com/tri-tochki-apartm.pdf' target="_blank" rel="noopener noreferrer">
+              {/* <a href='https://vxvwoeiztytglrmk.public.blob.vercel-storage.com/tri-tochki-apartm.pdf' target="_blank" rel="noopener noreferrer">
                 <button onClick={openModal} className={styles.superButton}>
                   <span className={styles.label}>СКАЧАТЬ ПРИМЕР</span>
                 </button>
-              </a>
+              </a> */}
 
               <button onClick={openModal} className={styles.superButton}>
               <span className={styles.label}>Получить расчет</span>

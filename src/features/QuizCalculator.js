@@ -175,30 +175,14 @@ export default function QuizCalculator() {
                     </div>
                   ) : (
                     <div className={styles.form}>
-                      <p>Укажите номер телефона для отправки расчета:</p>
+                      <p>Укажите номер телефона:</p>
                       <input
                         type="tel"
                         placeholder="+375 __ ___ __ __"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                       />
-
-                      <p>Куда вам удобнее получить расчёт?</p>
-                      <div className={styles.options}>
-                        {["Telegram", "WhatsApp", "Звонок"].map((option) => (
-                          <button
-                            key={option}
-                            className={
-                              contactMethod === option
-                                ? styles.selected
-                                : ""
-                            }
-                            onClick={() => setContactMethod(option)}
-                          >
-                            {option}
-                          </button>
-                        ))}
-                      </div>
+                      <p>Наш специалист свяжется с вами в течение 15 минут.</p>
 
                       <button
                         className={styles.submit}
