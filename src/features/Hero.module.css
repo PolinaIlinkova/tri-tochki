@@ -57,6 +57,18 @@ h1 {
   font-family: 'Noto Sans';
   text-transform: uppercase;
 }
+.textImp {
+  color: white;
+  font-family: 'Noto Sans';
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  background-color: rgba(27, 27, 27, 0.507);
+  padding: 1rem 20px;
+}
+.supImp {
+  font-size: 1.3rem;
+color:rgba(216, 133, 77, 0.89)}
+
 .text2 {
   color: white;
   font-family: 'Noto Sans';
@@ -105,9 +117,18 @@ h1 {
   background-color: #7e4b2983;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 620px) {
   .content {
     margin-top: 2rem;
+  }
+  .textImp {
+    font-size: 1.1rem;
+  }
+  .center {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
 
 }
@@ -118,6 +139,18 @@ h1 {
   }
   .buttons {
     flex-direction: column;
+  }
+  .titles {
+    font-size: 0.8rem;
+  }
+  .textImp {
+    font-size: 1rem;
+  }
+  .text2 {
+    font-size: 0.8rem;
+  }
+  .center {
+    margin: 0;
   }
 
 }

@@ -1,0 +1,43 @@
+.customSelect {
+  position: relative;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 6px;
+}
+.title {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.795);
+  font-family: "Raleway";
+  margin: 0;
+}
+.selectTrigger {
+  padding: 15px;
+  border: 1px solid #ccc;
+  background: transparent;
+  cursor: pointer;
+  color: #f5f5f5;
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  z-index: 10;
+}
+
+.options li {
+  padding: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.options li:hover {
+  background: #f5f5f5;
+}

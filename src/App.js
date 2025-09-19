@@ -29,13 +29,13 @@ function App() {
               <>
                 <Hero />
                 <ScrollToTopButton />
-                <About />
                 <Portfolio />
                 <Pricing />
-                <ProjectContent />
                 <QuizCalculator />
+                <ProjectContent />
                 <Testimonials />
                 <Application />
+                <About />
                 <Contacts />
                 <Footer />
               </>

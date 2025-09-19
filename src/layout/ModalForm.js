@@ -1,17 +1,26 @@
 import React, { useState } from "react";
 import styles from "./ModalForm.module.css";
 import Button from "../components/UI/Button";
+import CustomSelect from "../components/UI/Select";
 
 const TOKEN = process.env.REACT_APP_BOT_TOKEN;
 const CHAT_ID = process.env.REACT_APP_CHAT_ID;
 
-export default function ModalForm({ onClose }) {
+export default function ModalForm({ onClose, price }) {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+    social: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [selected, setSelected] = useState(null);
+
+  const options = [
+    { label: "Viber", color: "#7360f2", value: "viber" },
+    { label: "Telegram", color: "#229ed9", value: "telegram" },
+    { label: "WhatsApp", color: "#25d366", value: "whatsapp" },
+  ];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,12 +40,23 @@ export default function ModalForm({ onClose }) {
       return;
     }
 
-    const message = `
-💬 Новая заявка из формы:
-👤 Имя: ${formData.name}
-📞 Телефон: ${formData.phone}
-    `;
+    let message = "";
 
+    if (price) {
+      // форма прайс-листа
+      message = `
+  💬 Новая заявка на прайс-лист
+  📞 Телефон: ${formData.phone}
+  📲 Куда отправить: ${selected ? selected.label : "не выбрано"}
+      `;
+    } else {
+      // обычная форма
+      message = `
+  💬 Новая заявка с сайта
+  👤 Имя: ${formData.name}
+  📞 Телефон: ${formData.phone}
+      `;
+    }
     try {
       await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
         method: "POST",
@@ -64,32 +84,58 @@ export default function ModalForm({ onClose }) {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <label>
-        Ваше имя
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          required
-          onChange={handleChange}
-        />
-      </label>
-
-      <label>
-        Телефон для связи
-        <input
-          type="tel"
-          name="phone"
-          placeholder="+375 (XX) XXX-XX-XX"
-          value={formData.phone}
-          required
-          onChange={handleChange}
-        />
-      </label>
-
-      <button type="submit" className={styles.submitBtn}>
-        Отправить
-      </button>
+      {price ? (
+        <>
+          {" "}
+          <label>
+            Телефон
+            <input
+              type="tel"
+              name="phone"
+              placeholder="+375 (XX) XXX-XX-XX"
+              value={formData.phone}
+              required
+              onChange={handleChange}
+            />
+          </label>
+          <CustomSelect
+            options={options}
+            value={selected}
+            onChange={setSelected}
+          ></CustomSelect>
+          <button type="submit" className={styles.submitBtn}>
+            Отправить
+          </button>{" "}
+        </>
+      ) : (
+        <>
+          {" "}
+          <label>
+            Ваше имя
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              required
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Телефон для связи
+            <input
+              type="tel"
+              name="phone"
+              placeholder="+375 (XX) XXX-XX-XX"
+              value={formData.phone}
+              required
+              onChange={handleChange}
+            />
+          </label>
+          <button type="submit" className={styles.submitBtn}>
+            Отправить
+          </button>{" "}
+        </>
+      )}
     </form>
   );
 }

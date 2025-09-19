@@ -67,7 +67,7 @@ export default function Pricing() {
           <span className={styles.dot_line}></span>
           <h2 className={styles.sectionTitle}>Тарифы</h2>
         </div>
-        <div className={styles.grid}>
+        <div className={styles.tarifs}>
           {plans.map((plan, index) => (
             <motion.div
               key={index}

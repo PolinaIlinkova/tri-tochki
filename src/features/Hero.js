@@ -7,19 +7,30 @@ import ModalForm from "../layout/ModalForm";
 
 const Hero = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalListIsOpen, setModalListIsOpen] = useState(false);
 
   function openModal() {
     if (window.ym) {
       window.ym(104132928, "reachGoal", "poluchit_raschet");
     }
     setModalIsOpen(true);
+    setModalListIsOpen(false)
   }
+
+  function openListModal() {
+    if (window.ym) {
+      window.ym(104132928, "reachGoal", "poluchit_raschet");
+    }
+    setModalIsOpen(true);
+    setModalListIsOpen(true);
+  }
+
   return (
     <section className={styles.hero}>
       <MainContainer>
         <Header />
         <Modal isOpen={modalIsOpen} onClose={() => setModalIsOpen(false)}>
-          <ModalForm onClose={() => setModalIsOpen(false)} />
+          {modalListIsOpen ? <ModalForm price={modalListIsOpen} onClose={() => setModalIsOpen(false)}/> : <ModalForm onClose={() => setModalIsOpen(false)}/>}
         </Modal>
         <div className={styles.content}>
           <div className={styles.titles}>
@@ -35,16 +46,14 @@ const Hero = () => {
           </div>
           <div className={styles.center}>
             <p className={styles.text1}> От концепции — к реальности.</p>
+            <p className={styles.textImp}> Разработка дизайн-проекта с чертежами и планировочным решением за 2 недели —<br></br> <span className={styles.supImp}>от 7$ м²</span></p>
             <p className={styles.text2}>
               <b>Три точки</b> - студия дизайна и проектировки в Гомеле
             </p>
             <div className={styles.buttons}>
-              {/* <a href='https://vxvwoeiztytglrmk.public.blob.vercel-storage.com/tri-tochki-apartm.pdf' target="_blank" rel="noopener noreferrer">
-                <button onClick={openModal} className={styles.superButton}>
-                  <span className={styles.label}>СКАЧАТЬ ПРИМЕР</span>
+                <button onClick={openListModal} className={styles.superButton} >
+                  <span className={styles.label}>СКАЧАТЬ ПРАЙС-ЛИСТ</span>
                 </button>
-              </a> */}
-
               <button onClick={openModal} className={styles.superButton}>
               <span className={styles.label}>Получить расчет</span>
               </button>

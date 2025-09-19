@@ -18,17 +18,20 @@ const Menu = ({ dark, burgerIsActive, closeMenu }) => {
 
   return (
     <nav className={className}>
-      <HashLink smooth to={`${onHomePage ? "" : "/"}#about`} onClick={closeMenu}>
-        О нас
-      </HashLink>
       <HashLink smooth to={`${onHomePage ? "" : "/"}#portfolio`} onClick={closeMenu}>
         Портфолио
       </HashLink>
       <HashLink smooth to={`${onHomePage ? "" : "/"}#services`} onClick={closeMenu}>
-        Тарифы
+       Тарифы
+      </HashLink>
+      <HashLink smooth to={`${onHomePage ? "" : "/"}#calculator`} onClick={closeMenu}>
+        Калькулятор
       </HashLink>
       <HashLink smooth to={`${onHomePage ? "" : "/"}#faq`} onClick={closeMenu}>
         FAQ
+      </HashLink>
+      <HashLink smooth to={`${onHomePage ? "" : "/"}#about`} onClick={closeMenu}>
+        О нас
       </HashLink>
       <HashLink smooth to={`${onHomePage ? "" : "/"}#contact`} onClick={closeMenu}>
         Контакты

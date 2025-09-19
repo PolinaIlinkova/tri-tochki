@@ -110,7 +110,7 @@ export default function QuizCalculator() {
     ((step + (showForm ? 1 : 0)) / (questions.length + 1)) * 100;
 
   return (
-    <section className={styles.calcSection}>
+    <section className={styles.calcSection} id="calculator">
       <MainContainer>
         <div className={styles.headingSection}>
           <span className={styles.dot_line}></span>
