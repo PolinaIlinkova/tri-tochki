@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 22px 0px;
+  padding: 22px 0px ;
   color: white;
 }
 
@@ -25,5 +25,8 @@
 @media (max-width:480px) {
   .phone {
     font-size: 1rem;
+  }
+  .header {
+    padding-bottom: 0;
   }
 }
