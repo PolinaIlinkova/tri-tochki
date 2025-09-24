@@ -2,6 +2,7 @@ import { useState } from "react";
 import Logo from "../components/UI/Logo";
 import styles from "./Header.module.css";
 import Menu from "./Menu";
+import PhoneToggle from "../components/UI/PhoneToggle";
 
 const Header = ({ dark }) => {
   const [isActive, setIsActive] = useState(false);
@@ -15,14 +16,17 @@ const Header = ({ dark }) => {
   }
 
   return (
-    <header className={styles.header}>
-      <div className={styles.logoWrapper} onClick={toggleMenu}>
-        <Logo dark={dark}  />
-      </div>
+    <>
+      {" "}
+      <header className={styles.header}>
+        <div className={styles.logoWrapper} onClick={toggleMenu}>
+          <Logo dark={dark} />
+        </div>
 
-      <Menu dark={dark} burgerIsActive={isActive} closeMenu={closeMenu} />
-      <p className={styles.phone}>+375 (44) 551-45-22</p>
-    </header>
+        <Menu dark={dark} burgerIsActive={isActive} closeMenu={closeMenu} />
+      </header>
+      <PhoneToggle />
+    </>
   );
 };
 

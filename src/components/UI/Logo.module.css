@@ -1,6 +1,6 @@
 
 .logo {
-    height: 50px;
+    height: 45px;
     border: 1px solid white;
     padding: 2px;
     border-radius: 50%;
@@ -17,7 +17,7 @@
     font-family:'Raleway';
     text-transform: uppercase;
     font-weight: 300;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .dark h2 {

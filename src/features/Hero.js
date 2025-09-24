@@ -45,7 +45,6 @@ const Hero = () => {
             </div>
           </div>
           <div className={styles.center}>
-            <p className={styles.text1}> От концепции — к реальности.</p>
             <p className={styles.textImp}> Разработка дизайн-проекта с чертежами и планировочным решением за 2 недели —<br></br> <span className={styles.supImp}>от 7$ м²</span></p>
             <p className={styles.text2}>
               <b>Три точки</b> - студия дизайна и проектировки в Гомеле
