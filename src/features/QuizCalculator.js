@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./QuizCalculator.module.css";
 import MainContainer from "../layout/MainContainer";
+import PersonalPolicy from "../components/UI/PersonalPolicy";
 
 const questions = [
   {
@@ -183,7 +184,7 @@ export default function QuizCalculator() {
                         onChange={(e) => setPhone(e.target.value)}
                       />
                       <p>Наш специалист свяжется с вами в течение 15 минут.</p>
-
+                      <PersonalPolicy />
                       <button
                         className={styles.submit}
                         onClick={handleSubmit}

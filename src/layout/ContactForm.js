@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./ContactForm.module.css";
 import PhoneInputField from "../components/UI/PhoneInputField";
+import PersonalPolicy from "../components/UI/PersonalPolicy";
 
 const TOKEN = process.env.REACT_APP_BOT_TOKEN;
 const CHAT_ID = process.env.REACT_APP_CHAT_ID;
@@ -100,6 +101,7 @@ function ContactForm() {
               placeholder="Комментарий (необязательно)"
               rows="3"
             />
+            <PersonalPolicy />
             <button type="submit">Отправить</button>
           </form>
         </>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./ModalForm.module.css";
 import Button from "../components/UI/Button";
 import CustomSelect from "../components/UI/Select";
+import PersonalPolicy from "../components/UI/PersonalPolicy";
 
 const TOKEN = process.env.REACT_APP_BOT_TOKEN;
 const CHAT_ID = process.env.REACT_APP_CHAT_ID;
@@ -10,7 +11,7 @@ export default function ModalForm({ onClose, price }) {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    social: '',
+    social: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -83,59 +84,64 @@ export default function ModalForm({ onClose, price }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
-      {price ? (
-        <>
-          {" "}
-          <label>
-            Телефон
-            <input
-              type="tel"
-              name="phone"
-              placeholder="+375 (XX) XXX-XX-XX"
-              value={formData.phone}
-              required
-              onChange={handleChange}
-            />
-          </label>
-          <CustomSelect
-            options={options}
-            value={selected}
-            onChange={setSelected}
-          ></CustomSelect>
-          <button type="submit" className={styles.submitBtn}>
-            Отправить
-          </button>{" "}
-        </>
-      ) : (
-        <>
-          {" "}
-          <label>
-            Ваше имя
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              required
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Телефон для связи
-            <input
-              type="tel"
-              name="phone"
-              placeholder="+375 (XX) XXX-XX-XX"
-              value={formData.phone}
-              required
-              onChange={handleChange}
-            />
-          </label>
-          <button type="submit" className={styles.submitBtn}>
-            Отправить
-          </button>{" "}
-        </>
-      )}
-    </form>
+    <>
+ 
+      <form onSubmit={handleSubmit} className={styles.form}>
+        {price ? (
+          <>
+               <p className={styles.textForm}>Заполните форму и мы отправим вам прайс-лист и чек-лист по ошибкам в ремонте в подарок!</p>
+            <label>
+              Телефон
+              <input
+                type="tel"
+                name="phone"
+                placeholder="+375 (XX) XXX-XX-XX"
+                value={formData.phone}
+                required
+                onChange={handleChange}
+              />
+            </label>
+            <CustomSelect
+              options={options}
+              value={selected}
+              onChange={setSelected}
+            ></CustomSelect>
+            <PersonalPolicy />
+            <button type="submit" className={styles.submitBtn}>
+              Отправить
+            </button>{" "}
+          </>
+        ) : (
+          <>
+                 <p className={styles.textForm}>Оставьте вашу заявку и менеджер свяжется с вами в течение 20 минут! </p>
+            <label>
+              Ваше имя
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                required
+                onChange={handleChange}
+              />
+            </label>
+            <label>
+              Телефон для связи
+              <input
+                type="tel"
+                name="phone"
+                placeholder="+375 (XX) XXX-XX-XX"
+                value={formData.phone}
+                required
+                onChange={handleChange}
+              />
+            </label>
+            <PersonalPolicy />
+            <button type="submit" className={styles.submitBtn}>
+              Отправить
+            </button>{" "}
+          </>
+        )}
+      </form>
+    </>
   );
 }

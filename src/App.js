@@ -30,12 +30,12 @@ function App() {
                 <Hero />
                 <ScrollToTopButton />
                 <Portfolio />
+                <About />
+                <ProjectContent />
                 <Pricing />
                 <QuizCalculator />
-                <ProjectContent />
                 <Testimonials />
                 <Application />
-                <About />
                 <Contacts />
                 <Footer />
               </>

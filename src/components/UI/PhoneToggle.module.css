@@ -33,5 +33,6 @@
     white-space: nowrap;
     z-index: 99999;
     transition: opacity 0.3s ease, transform 0.3s ease;
+    color: rgba(0, 0, 0, 0.808);
   }
   

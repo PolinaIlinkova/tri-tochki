@@ -17,7 +17,7 @@ export default function PhoneToggle() {
 
       {visible && (
         <a href="tel:+375291234567" className={styles.phoneNumber}>
-          +375 (29) 123-45-67
+          +375 (44) 551-45-22
         </a>
       )}
     </div>

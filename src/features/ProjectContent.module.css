@@ -15,6 +15,11 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
   }
+
+  .timeText {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
   
   .card {
     position: relative;
@@ -23,7 +28,7 @@
     background: #111;
     color: #fff;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     padding: 20px;
     cursor: pointer;
   }
